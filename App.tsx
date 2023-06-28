@@ -1,7 +1,9 @@
 import { SafeAreaView, StatusBar, StyleSheet, useColorScheme } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Provider } from 'react-redux';
-import Initial from './src';
+import { NavigationContainer } from '@react-navigation/native';
+
+import Navigation from './src';
 import store from './src/state/store';
 
 function App(): JSX.Element {
@@ -17,9 +19,11 @@ function App(): JSX.Element {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      <Provider store={store}>
-        <Initial />
-      </Provider>
+      <NavigationContainer>
+        <Provider store={store}>
+          <Navigation />
+        </Provider>
+      </NavigationContainer>
     </SafeAreaView>
   );
 }

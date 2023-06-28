@@ -1,9 +1,13 @@
-import { Text, View } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { CartScreen, ProductListScreen } from './screens';
 
-export default function Initial() {
+export default function Navigation() {
+    const Tab = createBottomTabNavigator();
+
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text></Text>
-        </View>
+        <Tab.Navigator>
+            <Tab.Screen name="PRODUCTS" component={ProductListScreen} />
+            <Tab.Screen name="CART" component={CartScreen} />
+        </Tab.Navigator>
     )
 }
