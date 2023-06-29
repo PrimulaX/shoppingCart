@@ -5,15 +5,7 @@ import { ProductItem } from '../components';
 
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { StackNavigationParams } from '../navigation/ProductStack';
-
-interface IProductData {
-    id: number,
-    title: string,
-    price: string,
-    category: string,
-    description: string,
-    image: string
-};
+import type { IProductData } from '../types';
 
 export default function ProductListScreen() {
     const { navigate } = useNavigation<NativeStackNavigationProp<StackNavigationParams, 'PRODUCT_DETAILS'>>();
