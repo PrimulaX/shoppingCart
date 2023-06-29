@@ -17,7 +17,7 @@ export default function ProductItem({ title, image, price, isDetailed }: TProduc
             />
             <View style={{ flexDirection: 'column', flex: 1 }}>
                 <Text style={styles.title}>{title}</Text>
-                <Text style={styles.price}>${price}</Text>
+                <Text style={styles.price}>{price ? '$' + price : ''}</Text>
             </View>
         </View>
     )
