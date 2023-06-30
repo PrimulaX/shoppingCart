@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import { useAppDispatch, useAppSelector } from '../state/hooks';
 import { ProductItem } from '../components';
@@ -13,12 +13,14 @@ export default function ProductDetails() {
     const dispatch = useAppDispatch();
     const { params } = useRoute<RouteProp<StackNavigationParams, 'PRODUCT_DETAILS'>>();
     const [product, setProduct] = useState<IProductData | null>(null);
+    const [isLoading, setLoading] = useState<boolean>(false);
     const addedItem = useAppSelector((state) => state.cart).find(item => item.id === product?.id);
 
     useEffect(() => {
+        setLoading(true);
         fetch(`https://fakestoreapi.com/products/${params.id}`)
             .then(res => res.json())
-            .then(data => setProduct(data));
+            .then(data => { setProduct(data); setLoading(false) });
     }, []);
 
     const handleAddToCart = (product: IProductData) => {
@@ -32,6 +34,8 @@ export default function ProductDetails() {
     const handleRemoveItemFromCart = (product: IProductData) => {
         dispatch(removeItem(product));
     };
+
+    if (isLoading) return <ActivityIndicator style={{ marginTop: 30 }} />;
 
     return (
         <View style={{ flex: 1 }}>
