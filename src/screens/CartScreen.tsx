@@ -18,7 +18,7 @@ export default function CartScreen() {
 
     return (
         <View style={{ flex: 1 }}>
-            <View style={{ flex: 0.9, }}>
+            <View style={{ flex: 0.9 }}>
                 <FlatList
                     contentContainerStyle={styles.listContainer}
                     ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
@@ -37,7 +37,6 @@ export default function CartScreen() {
 
 const styles = StyleSheet.create({
     listContainer: {
-        flex: 1,
         paddingHorizontal: 5,
         paddingVertical: 5
     },
