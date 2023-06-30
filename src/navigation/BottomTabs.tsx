@@ -1,6 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { CartScreen } from '../screens';
 import ProductStack from './ProductStack';
+import { useAppSelector } from '../state/hooks';
 
 type TabsNavigationParams = {
     PRODUCTS: undefined,
@@ -9,6 +10,7 @@ type TabsNavigationParams = {
 
 export default function Navigation() {
     const Tab = createBottomTabNavigator<TabsNavigationParams>();
+    const cartItems = useAppSelector((state) => state.cart).length;
 
     return (
         <Tab.Navigator initialRouteName='PRODUCTS'>
@@ -25,7 +27,8 @@ export default function Navigation() {
                 component={CartScreen}
                 options={{
                     title: 'Cart',
-                    headerShown: false
+                    headerShown: false,
+                    tabBarBadge: cartItems > 0 ? cartItems : undefined
                 }}
             />
         </Tab.Navigator>
