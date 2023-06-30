@@ -40,9 +40,7 @@ export default function ProductDetails() {
     return (
         <View style={{ flex: 1 }}>
             <ProductItem
-                title={product?.title!}
-                price={product?.price!}
-                image={product?.image!}
+                product={product!}
                 isDetailed
             />
             <ScrollView style={{ flex: 1 }}>

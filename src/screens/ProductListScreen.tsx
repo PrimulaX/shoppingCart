@@ -20,9 +20,7 @@ export default function ProductListScreen() {
         <TouchableOpacity onPress={() => navigate('PRODUCT_DETAILS', { id: item.id })}>
             <ProductItem
                 key={item.id}
-                image={item.image}
-                title={item.title}
-                price={item.price}
+                product={item}
             />
         </TouchableOpacity >
     );
