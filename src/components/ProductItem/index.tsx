@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
     },
     price: {
         fontSize: 17,
-        marginTop: 10
+        marginTop: 10,
+        color: '#000'
     },
     actionsContainer: {
         flex: 0.2,
