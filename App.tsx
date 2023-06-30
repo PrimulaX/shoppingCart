@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 
 import Navigation from './src/navigation/BottomTabs';
-import store from './src/state/store';
+import { store } from './src/state/store';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
