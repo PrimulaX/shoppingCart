@@ -48,13 +48,13 @@ export default function ProductDetails() {
             </ScrollView>
             <View style={styles.actionsContainer}>
                 <TouchableOpacity style={styles.actionBox} onPress={() => handleRemoveFromCart(product!)}>
-                    <Text style={{ fontSize: 30 }}>-</Text>
+                    <Text style={{ fontSize: 30, color: '#000' }}>-</Text>
                 </TouchableOpacity>
                 <View style={styles.actionBox}>
                     <Text style={styles.counter}>{addedItem?.quantity ?? 0}</Text>
                 </View>
                 <TouchableOpacity style={styles.actionBox} onPress={() => handleAddToCart(product!)}>
-                    <Text style={{ fontSize: 30 }}>+</Text>
+                    <Text style={{ fontSize: 30, color: '#000' }}>+</Text>
                 </TouchableOpacity>
             </View>
             <TouchableOpacity
@@ -71,7 +71,8 @@ const styles = StyleSheet.create({
     description: {
         paddingHorizontal: 20,
         fontSize: 16,
-        fontWeight: '400'
+        fontWeight: '400',
+        color: '#000'
     },
     actionsContainer: {
         flexDirection: 'row',
@@ -89,7 +90,8 @@ const styles = StyleSheet.create({
         borderRadius: 4,
     },
     counter: {
-        fontSize: 20
+        fontSize: 20,
+        color: '#000'
     },
     addButton: {
         justifyContent: 'center',

@@ -16,24 +16,24 @@ export default function ProductItem({ product, isDetailed, isCartItem }: TProduc
 
     return (
         <View style={[styles.container, { borderWidth: isDetailed ? 0 : 1 }]}>
-            <Image
+            {product?.image && <Image
                 resizeMode='cover'
                 style={[styles.imageContainer, { width: isDetailed ? 150 : 70, height: isDetailed ? 150 : 70 }]}
-                source={{ uri: product?.image }}
-            />
+                source={{ uri: product.image }}
+            />}
             <View style={{ flexDirection: 'column', flex: 1 }}>
                 <Text style={styles.title}>{product?.title ?? ''}</Text>
                 <Text style={styles.price}>{product?.price ? '$' + product.price : ''}</Text>
             </View>
             {isCartItem && <View style={styles.actionsContainer}>
                 <TouchableOpacity style={styles.actionBox} onPress={() => dispatch(add(product))}>
-                    <Text style={{ fontSize: 15 }}>+</Text>
+                    <Text style={{ fontSize: 15, color: '#000' }}>+</Text>
                 </TouchableOpacity>
                 <View style={styles.actionBox}>
                     <Text style={styles.counter}>{addedItem?.quantity ?? 0}</Text>
                 </View>
                 <TouchableOpacity style={styles.actionBox} onPress={() => dispatch(remove(product))}>
-                    <Text style={{ fontSize: 15 }}>-</Text>
+                    <Text style={{ fontSize: 15, color: '#000' }}>-</Text>
                 </TouchableOpacity>
             </View>}
         </View>
@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
         borderRadius: 4,
     },
     counter: {
-        fontSize: 15
+        fontSize: 15,
+        color: '#000'
     },
 });

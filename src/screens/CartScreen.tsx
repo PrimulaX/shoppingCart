@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
     },
     totalText: {
         fontSize: 20,
-        fontWeight: '600'
+        fontWeight: '600',
+        color: '#000'
     }
 });
