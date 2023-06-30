@@ -6,7 +6,7 @@ import type { IProductData } from '../types';
 
 export default function CartScreen() {
     const cartItems = useAppSelector((state) => state.cart);
-    const totalPrice = cartItems.reduce((acc, curr) => acc + (+curr.price * +curr.quantity), 0);
+    const totalPrice = cartItems.reduce((acc, curr) => acc + (+curr.price * +curr.quantity), 0).toFixed(2);
 
     const renderProducts = ({ item }: { item: IProductData }) => (
         <ProductItem
